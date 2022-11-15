@@ -1,15 +1,61 @@
 import React from "react";
+import { getBottomSpace } from "react-native-iphone-x-helper";
 import { HighlightCard } from "../../components/HighlightCard";
+import { TransactionCard } from "../../components/TransactionCard";
 
 
-import { Container, Header, UserInfo, Photo, User, UserGreting, UserName, UserWrapper, Icon, HighlightCards } from './styles'
+import { 
+
+    Container, 
+    Header, 
+    UserInfo, 
+    Photo, 
+    User, 
+    UserGreting, 
+    UserName, 
+    UserWrapper, 
+    Icon, 
+    HighlightCards, 
+    Transactions, 
+    Title, 
+    TransactionList,
+
+} from './styles'
 
 export function Dashboard(){
+    
+    const data = [{
+        title: "Desenvolvimento de Site",
+        amount: "R$ 12.000,00",
+        category: {
+            name: 'Vendas',
+            icon: 'dollar-sign'
+        },
+        date: "15/11/2022"
+    },
+    {
+        title: "Desenvolvimento de Site",
+        amount: "R$ 12.000,00",
+        category: {
+            name: 'Vendas',
+            icon: 'dollar-sign'
+        },
+        date: "15/11/2022"
+    },
+    {
+        title: "Desenvolvimento de Site",
+        amount: "R$ 12.000,00",
+        category: {
+            name: 'Vendas',
+            icon: 'dollar-sign'
+        },
+        date: "15/11/2022"
+    }];
+
     return(
         <Container >
             <Header>
                 <UserWrapper>
-
                     <UserInfo>
                         <Photo 
                             source={{uri: 'https://avatars.githubusercontent.com/u/47918900?s=400&u=33cb2c5fd276aeb11b2a57eca85b1654084e06c1&v=4'}}/>
@@ -21,6 +67,7 @@ export function Dashboard(){
                     <Icon name="power" />
                 </UserWrapper>
             </Header>
+
             <HighlightCards>
                 <HighlightCard 
                     type="up"
@@ -41,6 +88,21 @@ export function Dashboard(){
                     lastTransaction="01 à 16 de abril"
                 />
             </HighlightCards>
+
+            <Transactions>
+                <Title>Listagem</Title>
+
+                
+                <TransactionList
+                    data={data}
+                    renderItem={({ item }) => <TransactionCard data={ item } />}
+                    showsVerticalScrollIndicator={false}
+                    contentContainerStyle={{
+                        paddingBottom: getBottomSpace()
+                    }}
+                />
+
+            </Transactions>
         </Container>
     );
 
