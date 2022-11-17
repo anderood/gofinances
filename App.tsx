@@ -1,9 +1,8 @@
 import React from 'react';
 import AppLoading from 'expo-app-loading';
-
 import { ThemeProvider } from 'styled-components';
-
 import theme from './src/Global/styles/theme';
+import { Register } from './src/pages/Register';
 
 import {
   useFonts,
@@ -13,7 +12,6 @@ import {
 
 } from '@expo-google-fonts/poppins'
 
-import { Dashboard } from './src/pages/Dashboard';
 
 export default function App() {
 
@@ -29,7 +27,7 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Dashboard />
+      <Register />
     </ThemeProvider>
   );
 }
